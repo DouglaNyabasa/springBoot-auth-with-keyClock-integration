@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
 
         Response response = getUserResource().create(userRepresentation);
 
-        if (!Objects.equals(201, response.getStatus())) {
+        if (Objects.equals(201, response.getStatus())) {
             log.info("Error creating user: {}", response.readEntity(String.class));
         }
         log.info("Created user: {}", response.readEntity(String.class));
