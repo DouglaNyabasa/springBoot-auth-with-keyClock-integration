@@ -57,6 +57,14 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public void sendVerificationEmail(String userId) {
+
+        UsersResource usersResource = getUserResource();
+        usersResource.get(userId).sendVerifyEmail();
+
+    }
+
     private UsersResource getUserResource() {
        return keycloak.realm(realm).users();
     }

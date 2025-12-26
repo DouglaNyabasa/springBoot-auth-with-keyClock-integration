@@ -6,4 +6,5 @@ import com.doug.springauthwithkeyclockintegration.payload.dto.UserDTO;
 public interface UserService {
 
     void createUser(UserDTO userDTO);
+    void sendVerificationEmail(String userId);
 }

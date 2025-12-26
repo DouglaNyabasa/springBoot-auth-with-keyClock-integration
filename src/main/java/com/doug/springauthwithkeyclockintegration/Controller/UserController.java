@@ -4,10 +4,7 @@ import com.doug.springauthwithkeyclockintegration.payload.dto.UserDTO;
 import com.doug.springauthwithkeyclockintegration.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -23,5 +20,11 @@ public class UserController {
     public ResponseEntity<?> createUser(@RequestBody UserDTO userDTO) {
         userService.createUser(userDTO);
         return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @PutMapping("/{id}/send-verification-email")
+    public ResponseEntity<?> sendVerificationEmail(@PathVariable String id) {
+        userService.sendVerificationEmail(id);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 }
