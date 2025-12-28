@@ -42,7 +42,8 @@ public class WebSecurityConfig {
                     HttpMethod.PUT,
                     "/public/**",
                     "/api/{id}/send-verification-email",
-                    "/api/forgot-password/**"
+                    "/api/forgot-password/**",
+                    "/roles/assign/**"
 
             );
             web.ignoring().requestMatchers(

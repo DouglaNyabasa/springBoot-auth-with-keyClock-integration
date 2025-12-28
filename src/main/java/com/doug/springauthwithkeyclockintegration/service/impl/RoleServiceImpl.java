@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 
 @Service
-@RequiredArgsConstructor
 @Slf4j
 public class RoleServiceImpl  implements RoleService {
 
@@ -24,8 +23,12 @@ public class RoleServiceImpl  implements RoleService {
 
     @Value("${app.keycloak.realm}")
     private String realm;
-
     public final Keycloak keycloak;
+
+    public RoleServiceImpl(UserService userService, Keycloak keycloak) {
+        this.userService = userService;
+        this.keycloak = keycloak;
+    }
 
 
     @Override

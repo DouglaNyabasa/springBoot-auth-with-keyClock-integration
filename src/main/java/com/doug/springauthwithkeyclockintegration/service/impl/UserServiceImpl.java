@@ -26,7 +26,6 @@ public class UserServiceImpl implements UserService {
 
     public final Keycloak keycloak;
 
-
     public UserServiceImpl(Keycloak keycloak) {
         this.keycloak = keycloak;
     }
