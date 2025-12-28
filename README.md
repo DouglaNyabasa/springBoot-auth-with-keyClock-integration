@@ -93,7 +93,39 @@ username: testuser@gmail.com (or your chosen username)
 <br>
 password: yourpassword
 
-### 8. Configure the Client
+### 8. Set Up Gmail for Email Verification
+
+To enable email verification and password updates, follow these steps to configure your Gmail account:
+
+Set Up 2-Step Verification:
+
+Go to your Google Account settings.
+Navigate to Security and enable 2-Step Verification.
+Create an App Password:
+
+In the same Security section, find App passwords.
+Select Other (Custom name) and enter a name, e.g., Keycloak.
+Click Generate to create a password.
+Configure Keycloak Email Settings:
+
+In the Keycloak admin console, navigate to your realm settings.
+Go to the Email tab and enter the following configurations:
+<br>
+Host: smtp.gmail.com
+<br>
+Port: 587
+<br>
+From: testuser@gmail.com (or your Gmail address)
+<br>
+Username: testuser@gmail.com
+Password: The app password generated earlier in your gmail account.
+<br>
+Encryption: TLS
+<br>
+
+Save the changes.
+
+### 9. Configure the Client
 
 Navigate to the Clients section.
 <br>
