@@ -42,6 +42,10 @@ public class RoleServiceImpl  implements RoleService {
 
     @Override
     public void removeRole(String userId, String roleName) {
+        UserResource user = userService.getUser(userId);
+        RolesResource rolesResource = getRolesResource();
+        RoleRepresentation representation = rolesResource.get(roleName).toRepresentation();
+        user.roles().realmLevel().remove(Collections.singletonList(representation));
 
     }
 
