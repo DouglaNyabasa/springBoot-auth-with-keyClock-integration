@@ -10,6 +10,7 @@ import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.resource.UserResource;
 import org.keycloak.admin.client.resource.UsersResource;
 import org.keycloak.representations.idm.CredentialRepresentation;
+import org.keycloak.representations.idm.RolesRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -94,6 +95,11 @@ public class UserServiceImpl implements UserService {
     public UserResource getUser(String userId) {
         UsersResource usersResource =  getUserResource();
         return usersResource.get(userId);
+    }
+
+    @Override
+    public List<RolesRepresentation> getRoles(String userId) {
+        return List.of();
     }
 
     private UsersResource getUserResource() {

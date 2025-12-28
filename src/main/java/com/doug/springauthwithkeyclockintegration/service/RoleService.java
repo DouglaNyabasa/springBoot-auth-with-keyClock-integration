@@ -4,4 +4,5 @@ public interface RoleService {
 
     void assignRole(String userId, String roleName);
     void removeRole(String userId, String roleName);
+
 }
