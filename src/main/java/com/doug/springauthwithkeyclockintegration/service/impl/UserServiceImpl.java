@@ -91,6 +91,12 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public UserResource getUser(String userId) {
+        UsersResource usersResource =  getUserResource();
+        return usersResource.get(userId);
+    }
+
     private UsersResource getUserResource() {
        return keycloak.realm(realm).users();
     }
