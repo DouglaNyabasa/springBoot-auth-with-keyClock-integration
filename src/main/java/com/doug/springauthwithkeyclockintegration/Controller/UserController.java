@@ -39,4 +39,10 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
+    @GetMapping("/get-roles/{id}")
+    public ResponseEntity<?> getUserRoles(@PathVariable String id) {
+        userService.getRoles(id);
+        return ResponseEntity.status(HttpStatus.OK).body(userService.getRoles(id));
+    }
+
 }

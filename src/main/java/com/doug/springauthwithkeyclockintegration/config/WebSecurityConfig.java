@@ -31,7 +31,8 @@ public class WebSecurityConfig {
             );
             web.ignoring().requestMatchers(
                     HttpMethod.GET,
-                    "/public/**"
+                    "/public/**",
+                    "/api/get-roles/**"
             );
             web.ignoring().requestMatchers(
                     HttpMethod.DELETE,
