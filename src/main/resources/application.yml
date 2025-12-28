@@ -14,7 +14,7 @@ app:
   keycloak:
     admin:
       clientId: admin-cli
-      clientSecret: 3Y0rgdaOSfQiCtVxlskUB0az0VCIDuH3
+      clientSecret: JN6sIUe4fYoqS3xiyIB3n3mAjvyd06tm
     realm: spring
     serverUrl: http://localhost:9082
 

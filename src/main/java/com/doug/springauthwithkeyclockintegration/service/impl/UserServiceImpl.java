@@ -48,12 +48,19 @@ public class UserServiceImpl implements UserService {
 
         userRepresentation.setCredentials(List.of(credentialRepresentation));
 
-        Response response = getUserResource().create(userRepresentation);
+        UsersResource usersResource =  getUserResource();
 
-        if (Objects.equals(201, response.getStatus())) {
+        Response response = usersResource.create(userRepresentation);
+
+        if (!Objects.equals(201, response.getStatus())) {
             log.info("Error creating user: {}", response.readEntity(String.class));
         }
         log.info("Created user: {}", response.readEntity(String.class));
+
+        List<UserRepresentation> userRepresentations = usersResource.searchByUsername(userDTO.getUsername(), true);
+        UserRepresentation userRepresentation1 = userRepresentations.get(0);
+        sendVerificationEmail(userRepresentation1.getId());
+
 
     }
 
