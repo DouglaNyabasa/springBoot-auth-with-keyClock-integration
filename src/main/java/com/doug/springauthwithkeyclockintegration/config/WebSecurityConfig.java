@@ -36,7 +36,8 @@ public class WebSecurityConfig {
             web.ignoring().requestMatchers(
                     HttpMethod.DELETE,
                     "/public/**",
-                    "/api/{id}/delete"
+                    "/api/{id}/delete",
+                    "/roles/remove/**"
             );
             web.ignoring().requestMatchers(
                     HttpMethod.PUT,

@@ -24,4 +24,10 @@ public class RolesController {
      roleService.assignRole(userId, roleName);
      return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
+    @DeleteMapping("/remove/{userId}")
+    public ResponseEntity<?> removeRole(@PathVariable String userId, @RequestParam String roleName) {
+        roleService.removeRole(userId, roleName);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }
