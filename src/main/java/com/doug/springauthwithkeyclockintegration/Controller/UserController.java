@@ -27,4 +27,10 @@ public class UserController {
         userService.sendVerificationEmail(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
+
+    @DeleteMapping("/{id}/delete")
+    public ResponseEntity<?> deleteUser(@PathVariable String id) {
+        userService.deleteUser(id);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
 }

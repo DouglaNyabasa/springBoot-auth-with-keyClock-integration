@@ -79,6 +79,18 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public void forgotPassword(String email) {
+        UsersResource usersResource =  getUserResource();
+
+        List<UserRepresentation> userRepresentations = usersResource.searchByUsername(email, true);
+        UserRepresentation userRepresentation1 = userRepresentations.get(0);
+
+        UserResource userResource = usersResource.get(userRepresentation1.getId());
+        userResource.executeActionsEmail(List.of("UPDATE_PASSWORD"));
+
+    }
+
     private UsersResource getUserResource() {
        return keycloak.realm(realm).users();
     }
