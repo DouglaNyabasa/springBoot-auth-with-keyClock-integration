@@ -40,6 +40,11 @@ public class RoleServiceImpl  implements RoleService {
 
     }
 
+    @Override
+    public void removeRole(String userId, String roleName) {
+
+    }
+
     private RolesResource getRolesResource() {
         return keycloak.realm(realm).roles();
     }
