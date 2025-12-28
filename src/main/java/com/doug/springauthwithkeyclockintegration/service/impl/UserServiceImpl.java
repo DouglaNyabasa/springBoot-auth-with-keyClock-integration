@@ -72,6 +72,13 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public void deleteUser(String userId) {
+        UsersResource usersResource = getUserResource();
+         usersResource.delete(userId);
+
+    }
+
     private UsersResource getUserResource() {
        return keycloak.realm(realm).users();
     }
