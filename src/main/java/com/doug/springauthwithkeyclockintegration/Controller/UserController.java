@@ -33,4 +33,10 @@ public class UserController {
         userService.deleteUser(id);
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
+    @PutMapping("/forgot-password")
+    public ResponseEntity<?> forgotPassword(@RequestParam String email) {
+        userService.forgotPassword(email);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+
 }
